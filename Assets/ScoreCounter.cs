@@ -9,11 +9,11 @@ public class ScoreCounter : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-	    
+        scoreText = GameObject.Find("Score").GetComponentInChildren<Text>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	    
+        scoreText.text = score.ToString();
 	}
 }

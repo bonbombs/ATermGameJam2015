@@ -20,13 +20,13 @@ public class Score : MonoBehaviour {
     {
         if (col.gameObject.name == "BoundBox")
         {
-            Destroy(col.GetComponent<Collider2D>().gameObject);
+            Destroy(gameObject);
         }
         if (col.gameObject.name.Contains("bat"))
         {
             scoreCount.score++;
             Destroy(col.gameObject);
-            Destroy(col.GetComponent<Collider2D>().gameObject);
+            Destroy(gameObject);
 
         }
     }
