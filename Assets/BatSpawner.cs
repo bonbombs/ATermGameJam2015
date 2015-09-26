@@ -6,6 +6,7 @@ public class BatSpawner : MonoBehaviour {
     public GameObject bat;
     public float radius;
     public float spawnTime = 3f;
+	private bool isPaused = false;
 
     public GameObject ring;
 
@@ -13,26 +14,35 @@ public class BatSpawner : MonoBehaviour {
 	void Start () {
         InvokeRepeating("SpawnBat", spawnTime, spawnTime);
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
-	}
 
     void SpawnBat()
     {
-        GameObject newBat = Instantiate(bat);
-        newBat.transform.parent = ring.transform;
-        float angle = getRandomAngle();
-        float x = radius * Mathf.Cos(angle) + transform.position.x;
-        float y = radius * Mathf.Sin(angle) + transform.position.y;
-        Vector2 vector = new Vector2(x, y);
-
-        newBat.transform.position = vector;
+		if (!isPaused) {
+			float angle = getRandomAngle();
+			float x = radius * Mathf.Cos(angle) + transform.position.x;
+			float y = radius * Mathf.Sin(angle) + transform.position.y;
+			Vector3 position = new Vector3(x, y, 0);
+			
+			GameObject newBat = Instantiate(bat) as GameObject;
+			newBat.transform.position = position;
+			newBat.transform.Rotate(position.normalized * -1);
+			newBat.transform.parent = ring.transform;
+		}
     }
 
     float getRandomAngle()
     {
-        return Random.Range(0.0F, 360.0F);
+        return Random.Range(0.0f, 360.0f);
     }
+
+	public void StopBatSpawn(){
+		//Debug.Log ("Stopping");
+		isPaused = true;
+	}
+
+	public void ResumeBatSpawn(){
+		isPaused = false;
+	}
+
 }

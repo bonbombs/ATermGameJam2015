@@ -5,14 +5,19 @@ public class RotateRing : MonoBehaviour {
 
     public string direction = "cw";         //direction of rotation
     public float speed = 10;                //speed of rotation
+	public int batCount = 0;
+	private int maxBats;
 
-	// Use this for initialization
-	void Start () {
-
-	}
-	
 	// Update is called once per frame
 	void Update () {
+		batCount = transform.childCount;	//exclude spawner itself
+		if (batCount >= maxBats) {
+			Debug.Log("Max bats achieved");
+			BroadcastMessage ("StopBatSpawn", SendMessageOptions.DontRequireReceiver);
+		} else {
+			BroadcastMessage ("ResumeBatSpawn", SendMessageOptions.DontRequireReceiver);
+		}
+
         switch (direction)
         {
             case "cw":
@@ -23,5 +28,11 @@ public class RotateRing : MonoBehaviour {
                 break;
         }
         
+	}
+
+	public void UpdateLevel(Level lv){
+		direction = lv.Direction;
+		speed = lv.Speed;
+		maxBats = lv.maxBats;
 	}
 }

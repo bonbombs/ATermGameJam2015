@@ -1,9 +1,11 @@
 fileFormatVersion: 2
-guid: 5022946634926324183e87fa5eafa246
-timeCreated: 1443230142
-licenseType: Pro
+guid: 3b2c54e7e1f7f5c408faefeb37aa3957
+timeCreated: 1443241443
+licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: bat_0
+    21300002: bat_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -29,7 +31,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 1
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -48,7 +50,27 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: bat_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 238
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bat_1
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 0
+        width: 238
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
