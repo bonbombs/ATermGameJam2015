@@ -7,9 +7,10 @@ public class BatSpawner : MonoBehaviour {
     public float radius;
     public float spawnTime = 3f;
 
+    public GameObject ring;
+
 	// Use this for initialization
 	void Start () {
-
         InvokeRepeating("SpawnBat", spawnTime, spawnTime);
 	}
 	
@@ -21,6 +22,7 @@ public class BatSpawner : MonoBehaviour {
     void SpawnBat()
     {
         GameObject newBat = Instantiate(bat);
+        newBat.transform.parent = ring.transform;
         float angle = getRandomAngle();
         float x = radius * Mathf.Cos(angle) + transform.position.x;
         float y = radius * Mathf.Sin(angle) + transform.position.y;
