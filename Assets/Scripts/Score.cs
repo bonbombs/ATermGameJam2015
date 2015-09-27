@@ -18,7 +18,7 @@ public class Score : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.name == "BoundBox")
+        if (col.gameObject.name.Contains("BoundBox"))
         {
             Destroy(gameObject);
         }
@@ -27,7 +27,10 @@ public class Score : MonoBehaviour {
             scoreCount.score++;
             Destroy(col.gameObject);
             Destroy(gameObject);
-
+        }
+        if(col.gameObject.GetComponent<PowerUp>() != null)
+        {
+            Destroy(gameObject);
         }
     }
 }

@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 public class ScoreCounter : MonoBehaviour {
 
+    private Text speedText;
     private Text scoreText;
     public int score = 0;
 	public Level[] Levels;
@@ -12,15 +13,17 @@ public class ScoreCounter : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        scoreText = GameObject.Find("Score").GetComponentInChildren<Text>();
-		ring = GameObject.Find ("ring").GetComponent<RotateRing> ();
+        scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+        speedText = GameObject.Find("SpeedText").GetComponent<Text>(); 
+        ring = GameObject.Find ("ring").GetComponent<RotateRing> ();
 		currentLevel = Levels [0];
-		ring.UpdateLevel (currentLevel);
+		//ring.UpdateLevel (currentLevel);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         scoreText.text = score.ToString();
+        speedText.text = "Speed: " + ring.speed.ToString() + "x";
 	}
 
 }

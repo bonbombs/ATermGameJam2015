@@ -15,5 +15,10 @@ public class KillMe : MonoBehaviour {
             Debug.Log("Quitting!");
             Application.Quit();
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Application.LoadLevel(Application.loadedLevelName);
+        }
 	}
 }
