@@ -6,6 +6,7 @@ public abstract class Spawner : MonoBehaviour
     public float radius;
     public float spawnTime = 3f;
 
+    protected float multiplier = 1f;
     protected GameObject ringObj;
     protected RotateRing ringStats;
 
@@ -27,10 +28,17 @@ public abstract class Spawner : MonoBehaviour
     void Spawn()
     {
         isPaused = false;
-        Vector3 position = getRandomVector(center, radius);
-        Quaternion rot = Quaternion.FromToRotation(Vector3.up, -position);
-        GameObject spawnedObj = Instantiate(spawnObj, position, rot) as GameObject;
-        spawnedObj.transform.parent = ringObj.transform;
+        for(int i = 0; i < multiplier; i++)
+        {
+            Vector3 position = getRandomVector(center, radius);
+            Quaternion rot = Quaternion.FromToRotation(Vector3.up, -position);
+            GameObject spawnedObj = Instantiate(spawnObj, position, rot) as GameObject;
+            spawnedObj.transform.parent = transform;
+            spawnedObj.transform.position = new Vector3(
+                spawnedObj.transform.position.x,
+                spawnedObj.transform.position.y,
+                transform.position.z);
+        }
     }
 
     public void StartSpawn()
@@ -56,10 +64,7 @@ public abstract class Spawner : MonoBehaviour
         }
     }
 
-    public void SpawnFaster()
-    {
-        spawnTime /= 2.0f;
-    }
+    public abstract void SpawnFaster();
 
     Vector3 getRandomVector(Vector3 center, float radius)
     {

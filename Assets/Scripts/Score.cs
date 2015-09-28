@@ -25,7 +25,6 @@ public class Score : MonoBehaviour {
         if (col.gameObject.name.Contains("bat"))
         {
             scoreCount.score++;
-            Destroy(col.gameObject);
             Destroy(gameObject);
         }
         if(col.gameObject.GetComponent<PowerUp>() != null)

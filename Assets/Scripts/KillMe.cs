@@ -16,9 +16,14 @@ public class KillMe : MonoBehaviour {
             Application.Quit();
         }
 
+        
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Application.LoadLevel(Application.loadedLevelName);
+            if (Application.loadedLevelName != "IntroScreen")
+            {
+                Application.LoadLevel(Application.loadedLevelName);
+            }
+            
         }
 	}
 }

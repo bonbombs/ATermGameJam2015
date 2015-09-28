@@ -26,7 +26,8 @@ public class RotateRing : MonoBehaviour {
 
     public void SpeedUp(float newSpeed)
     {
-        if (speed < maxSpeedCap && speed > minSpeedCap)
+        float speedToBe = speed + newSpeed;
+        if (speedToBe < maxSpeedCap && speedToBe > minSpeedCap)
         {
             speed += newSpeed;
 
@@ -35,11 +36,11 @@ public class RotateRing : MonoBehaviour {
                 BroadcastMessage("SpawnFaster", SendMessageOptions.DontRequireReceiver);
             }
         }
-        else if(speed < minSpeedCap)
+        else if(speedToBe < minSpeedCap)
         {
             speed += 0.25f;
         }
-        else if(speed > maxSpeedCap)
+        else if(speedToBe > maxSpeedCap)
         {
             speed -= 0.5f;
         }

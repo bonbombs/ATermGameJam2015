@@ -11,11 +11,10 @@ GameObject:
   - 212: {fileID: 21233256}
   - 50: {fileID: 5005548}
   - 58: {fileID: 5820426}
-  - 114: {fileID: 11485466}
   - 114: {fileID: 11463972}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AddBone
-  m_TagString: Untagged
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 115006}
   m_LocalRotation: {x: 0, y: 0, z: -.193459734, w: .981108248}
-  m_LocalPosition: {x: .140000001, y: 3.57999992, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: .140000001, y: 3.57999992, z: -3}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,17 +71,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0cea68a26cb7441ad7b99efab5812a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11485466
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 115006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22b9bb9560c4b60428ebc5b134d76e60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &21233256
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -115,7 +103,31 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: PowerUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 115006}
